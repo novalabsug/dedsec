@@ -3,73 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>dedsec</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <script>
-    (async () => {
-      try {
-        const res = await fetch(
-          "https://www.virustotal.com/api/v3/domains/sanagustinturismo.co",
-          {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-              "x-apikey":
-                "39fc2edc3e21c3abf28db2f64aac9f4156cc407c7bc6ae964aba7e36c025a069",
-            },
-          }
-        );
-
-        // sanagustinturismo.co
-        // innovationvillage.africa
-
-        const data = await res.json();
-
-        console.log(data);
-
-        console.log(data?.data.attributes.last_analysis_stats);
-
-        if (data?.data.attributes?.last_analysis_stats.malicious > 0) {
-          const div = document.createElement("div");
-          div.className =
-            "fixed bottom-10 right-10 w-fit py-3 px-6 shadow-lg rounded-md bg-white";
-          div.setAttribute("id", "popup-warning");
-          div.innerHTML = `
-                <h3 class="text-lg text-red-500 font-bold">DedSec Warning !!!</h3>
-                <p class="text-base my-4">This is has been flagged as fraudulent by ${data?.data.attributes?.last_analysis_stats.malicious} sites</p>
-            `;
-
-          document.querySelector("body").appendChild(div);
-
-          setTimeout(() => {
-            document.getElementById("popup-warning").classList.add("hidden");
-          }, 4500);
-        } else {
-          const div = document.createElement("div");
-          div.className =
-            "fixed bottom-10 right-10 w-fit py-3 px-6 shadow-lg rounded-md bg-white";
-          div.setAttribute("id", "popup-warning");
-          div.innerHTML = `
-                <h3 class="text-lg text-green-500 font-bold">DedSec scan</h3>
-                <p class="text-base my-4">This site has been scanned and is safe</p>
-            `;
-
-          document.querySelector("body").appendChild(div);
-
-          setTimeout(() => {
-            document.getElementById("popup-warning").classList.add("hidden");
-          }, 4500);
-        }
-      } catch (error) {
-        console.log({ error });
-      }
-    })();
-  </script>
+  <script src="main.js"></script>
 
   <body>
-    <main class="py-8 flex h-screen w-full bg-gray-50">
+    <!-- <main class="py-8 flex h-screen w-full bg-gray-50">
       <div class="m-auto w-2/5">
         <div class="py-10">
           <div class="bg-white p-8 shadow-md">
@@ -110,6 +51,6 @@
           </div>
         </div>
       </div>
-    </main>
+    </main> -->
   </body>
 </html>

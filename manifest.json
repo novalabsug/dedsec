@@ -1,0 +1,11 @@
+{
+  "name": "Dedsec phishing detector",
+  "version": "1.0.0",
+  "description": "Detect and inform users whether the page they are one is a phishing website or not",
+  "manifest_version": 3,
+  "author": "deadsec",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Dedsec Security"
+  }
+}
